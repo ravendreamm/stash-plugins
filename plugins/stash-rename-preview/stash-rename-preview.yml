@@ -1,0 +1,33 @@
+name: Stash Rename Preview
+description: Preview names for an updated scene; never moves or renames files.
+version: 0.0.1
+exec:
+  - python3
+  - "{pluginDir}/plugin.py"
+interface: raw
+hooks:
+  - name: Preview updated scene
+    description: Preview file destinations for the updated scene.
+    triggeredBy:
+      - Scene.Update.Post
+settings:
+  enabled:
+    displayName: Enable previews on scene updates
+    description: Preview updated scenes in Stash logs; no files are moved.
+    type: BOOLEAN
+  sceneDirectory:
+    displayName: Scene folder template
+    description: Relative to /data/scenes. Leave blank to use $title$.
+    type: STRING
+  sceneFilename:
+    displayName: Scene filename template
+    description: Filename without extension. Leave blank to use $title$.
+    type: STRING
+  movieDirectory:
+    displayName: Movie folder template
+    description: Relative to /data/movies. Leave blank to use $title$.
+    type: STRING
+  movieFilename:
+    displayName: Movie filename template
+    description: Filename without extension. Leave blank to use $title$.
+    type: STRING
